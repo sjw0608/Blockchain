@@ -22,7 +22,6 @@
   z-index: auto;
   left: 0;
   right: 0;
-  bottom: 0;
 }
 .footer-inner {
   position: absolute;
