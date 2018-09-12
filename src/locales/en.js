@@ -15,6 +15,15 @@ const locale = {
     node: 'Block Node',
     newBlock: 'Head Block',
     transaction: 'Total Transactions'
+  },
+  transaction: {
+    tx_id: 'Transaction Hash',
+    b_height: 'Block Height',
+    tx_time: 'Time',
+    from: 'From',
+    to: 'To',
+    amount: 'Amount',
+    fee: 'Fee'
   }
 }
 

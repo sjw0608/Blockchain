@@ -3,30 +3,18 @@
     <div class="container">
       <table class="table table-striped">
         <tr class="title">
-          <th>{{$t('transaction.tx_id')}}</th>
-          <th>{{$t('transaction.b_height')}}</th>
-          <th>{{$t('transaction.tx_time')}}</th>
-          <th>{{$t('transaction.from')}}</th>
-          <th>{{$t('transaction.to')}}</th>
-          <th>{{$t('transaction.amount')}}</th>
-          <th>{{$t('transaction.fee')}}</th>
+          <th>区块高度</th>
+          <th>生成时间</th>
+          <th>交易笔数</th>
+          <th>出块节点</th>
         </tr>
         <tr v-for="i in transactions">
           <th>
-            <router-link :to="{}">0X72f2a6a34f838</router-link>
-          </th>
-          <th>
-            <router-link :to="{}">977694</router-link>
+            <router-link :to="{}">985415</router-link>
           </th>
           <th>1秒前</th>
-          <th>
-            <router-link :to="{}">ux3ea79b4dfd7c6</router-link>
-          </th>
-          <th>
-            <router-link :to="{}">ux40502243934cc</router-link>
-          </th>
-          <th>1.000</th>
-          <th>0.0001</th>
+          <th>2</th>
+          <th>1.25.254</th>
         </tr>
       </table>
     </div>
@@ -45,7 +33,7 @@ export default {
 
 <style scoped>
 .transaction {
-  /* margin-top: 80px; */
+  margin-top: 80px;
 }
 .transaction .table tr {
   height: 50px;

@@ -19,4 +19,8 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  font-family: 'Helvetica Regular', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
 </style>

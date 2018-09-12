@@ -15,8 +15,15 @@
 				</div>
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav navbar-right">
-            <li><a href="javascript:;">{{$t('header.home')}}</a></li>
-            <li><a href="javascript:;">{{$t('header.transaction')}}</a></li>
+            <li>
+              <router-link :to="{name:'Index'}" active-class="active" exact>{{$t('header.home')}}</router-link>
+            </li>
+             <li>
+              <router-link :to="{name:'Block'}" active-class="active">{{$t('header.block')}}</router-link>
+            </li>
+            <li>
+              <router-link :to="{name:'Transactions'}" active-class="active">{{$t('header.transaction')}}</router-link>
+            </li>
             <li v-if="name !=='Index' ">
               <div class="search-wraper" role="search">
                 <div class="form-group">
@@ -63,6 +70,11 @@ export default {
         zh: require('../../../static/language-dropdown/img/CN.png'),
         en: require('../../../static/language-dropdown/img/US.png')
       }
+    }
+  },
+  watch: {
+    $route(route) {
+      this.name = route.name
     }
   },
   created() {
@@ -133,16 +145,26 @@ export default {
   margin-bottom: 0;
 }
 .nav > li .form-group .form-control {
-  margin-top: 20px;
+  margin-top: 28px;
   height: 35px;
 }
 .dropdown-menu {
   top: 80%;
 }
+.navbar-inverse .navbar-nav > li > a.active {
+  color: #4090f7;
+}
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #333;
+  }
+  .logo img {
+    height: 44px;
+    width: auto;
+  }
+  .navbar-inverse .navbar-toggle {
+    margin-top: 14px;
   }
 }
 </style>
