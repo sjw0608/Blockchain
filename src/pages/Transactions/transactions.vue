@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-transaction></v-transaction>
+    <div class="tx_header">
+      <h2>交易</h2>
+    </div>
+    <div class="tx_">
+      <v-transaction></v-transaction>
+    </div>
   </div>
 </template>
 
@@ -15,4 +20,18 @@ export default {
 </script>
 
 <style>
+.tx_header {
+  background-color: #4090f7;
+  height: 240px;
+  color: #fff;
+  text-align: center;
+}
+.tx_header > h2 {
+  line-height: 180px;
+  font-size: 44px;
+  font-weight: 700;
+}
+.tx_ {
+  margin-top: -60px;
+}
 </style>

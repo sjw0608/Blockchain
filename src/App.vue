@@ -2,7 +2,8 @@
   <div id="app">
     <v-header></v-header>
     <router-view/>
-    <v-footer></v-footer>
+    <div style="height:20px"></div>
+    <!-- <v-footer></v-footer> -->
   </div>
 </template>
 
@@ -22,5 +23,8 @@ export default {
 html,
 body {
   font-family: 'Helvetica Regular', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+.table {
+  margin-bottom: 0;
 }
 </style>

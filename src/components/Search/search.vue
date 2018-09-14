@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-10"></div>
+          <div class="col-xs-1"></div>
         </div>
       </div>
     </div>

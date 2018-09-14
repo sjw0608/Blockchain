@@ -22,13 +22,12 @@ export default {
 
 <style scoped>
 .record {
-  padding-right: 50px;
+  padding-right: 20px;
   margin-top: 50px;
   margin-bottom: 10px;
 }
 .record span {
   font-size: 24px;
-  /* line-height: 30px; */
 }
 .record .more_view {
   font-size: 16px;

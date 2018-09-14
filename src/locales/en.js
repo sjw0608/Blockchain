@@ -6,7 +6,7 @@ const locale = {
     transaction: 'Transaction',
     language: 'Language: English',
     flag: 'en',
-    search: 'Block ID, transaction address, account number'
+    search: 'Block Height, transaction address, account number'
   },
   search: {
     height: 'Block Height',

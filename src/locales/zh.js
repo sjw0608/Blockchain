@@ -6,7 +6,7 @@ const locale = {
     transaction: '交易',
     language: '语言: 中文',
     flag: 'zh',
-    search: '区块ID、交易地址、账号'
+    search: '区块高度、交易地址、账号'
   },
   search: {
     height: '区块高度',
