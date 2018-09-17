@@ -2,8 +2,8 @@
   <div>
     <v-search></v-search>
     <div class="container record">
-      <span>交易记录</span>
-      <router-link :to="{name:'Transactions'}" class="more_view">更多 >></router-link>
+      <span>{{$t('transaction.tx_history')}}</span>
+      <router-link :to="{name:'Transactions'}" class="more_view">{{$t('transaction.view_more')}} >></router-link>
     </div>
     <v-transaction></v-transaction>
   </div>

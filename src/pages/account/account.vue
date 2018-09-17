@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="account_title">
-      <h2>账号</h2>
+      <h2>{{$t('account.account')}}</h2>
       <h3>ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</h3>
     </div>
     <div class="container account_message">
-      <h2>账号信息</h2>
+      <h2>{{$t('account.a_message')}}</h2>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          余额
+          {{$t('account.balance')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>999999</p>
@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          试用余额
+          {{$t('account.try_currency')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>$ 9999999</p>
@@ -24,7 +24,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          账号
+          {{$t('account.account_id')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</p>
@@ -32,18 +32,18 @@
       </div>
     </div>
     <div class="container block_tx">
-      <h2>交易</h2>
+      <h2>{{$t('transaction.tx_title')}}</h2>
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
-              <td>交易Hash</td>
-              <td>区块高度</td>
-              <td>交易时间</td>
-              <td>来自</td>
-              <td>发往</td>
-              <td>金额</td>
-              <td>数量</td>
+              <th>{{$t('transaction.tx_id')}}</th>
+              <th>{{$t('transaction.b_height')}}</th>
+              <th>{{$t('transaction.tx_time')}}</th>
+              <th>{{$t('transaction.from')}}</th>
+              <th>{{$t('transaction.to')}}</th>
+              <th>{{$t('transaction.amount')}}</th>
+              <th>{{$t('transaction.fee')}}</th>
             </tr>
           </thead>
           <tbody>

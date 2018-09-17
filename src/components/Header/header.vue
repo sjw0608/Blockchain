@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { set_item } from '@/utils/localStorage'
 export default {
   data() {
@@ -72,17 +73,31 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters({
+      keywords: 'keywords'
+    })
+  },
   watch: {
     $route(route) {
       this.name = route.name
+    },
+    keywords() {
+      if (this.keywords != this.search) {
+        this.search = this.keywords
+      }
     }
   },
   created() {
     this.name = this.$route.name
   },
   methods: {
+    ...mapActions({
+      setKeywords: 'setKeywords'
+    }),
     eventChanged() {
       this.search = this.search.replace(/(^\s*)|(\s*$)/g, '')
+      this.setKeywords({ keywords: this.search })
     },
     switchLanguage(locale) {
       this._i18n.locale = locale

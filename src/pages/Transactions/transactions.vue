@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tx_header">
-      <h2>交易</h2>
+      <h2>{{$t('transaction.tx_title')}}</h2>
     </div>
     <div class="tx_">
       <v-transaction></v-transaction>

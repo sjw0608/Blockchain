@@ -1,18 +1,18 @@
 <template>
   <div class="block">
     <div class="block_title">
-      <h2>区块</h2>
+      <h2>{{$t('block.b_title')}}</h2>
     </div>
     <div class="container">
       <div class="table-responsive">
         <table class="table table-hover">
         <thead>
           <tr class="title">
-            <th>区块高度</th>
-            <th>生成时间</th>
-            <th>矿工</th>
-            <th>交易笔数</th>
-            <th>出块节点</th>
+            <th>{{$t('search.height')}}</th>
+            <th>{{$t('block.time')}}</th>
+            <th>{{$t('block.b_account')}}</th>
+            <th>{{$t('block.tx_num')}}</th>
+            <th>{{$t('search.node')}}</th>
           </tr>
         </thead>
         <tbody>

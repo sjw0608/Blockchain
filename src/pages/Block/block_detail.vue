@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="block_detial_title">
-      <h2>区块</h2>
+      <h2>{{$t('block.b_title')}}</h2>
       <h3>994160</h3>
     </div>
     <div class="container block_message">
-      <h2>信息</h2>
+      <h2>{{$t('transaction.message')}}</h2>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          区块高度
+          {{$t('transaction.b_height')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>15641616</p>
@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          区块ID
+          {{$t('block.block_id')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>d1c07ebfdf1a5a5f9ec5b96024b926429321eae4c25298423885d9ed83bfa7a1</p>
@@ -24,7 +24,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          上个区块
+          {{$t('block.last')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>d1c07ebfdf1a5a5f9ec5b96024b926429321eae4c25298423885d9ed83bfa7a2</p>
@@ -32,7 +32,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          生成时间
+          {{$t('block.time')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>22 分钟前(2018-09-14 05:26:04 凌晨 +UTC)</p>
@@ -40,7 +40,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          是否可逆
+          {{$t('search.reversible')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>false</p>
@@ -48,7 +48,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          生产者
+          {{$t('block.b_account')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>xs13454asasdwq54564a64d6sa46ca</p>
@@ -56,7 +56,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          生成节点
+          {{$t('search.node')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>1.21.245</p>
@@ -64,7 +64,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          交易数
+          {{$t('block.tx_num')}}
         </div>
         <div class="col-md-9 col-xs-12">
           <p>1</p>
@@ -72,18 +72,18 @@
       </div>
     </div>
     <div class="container block_tx">
-      <h2>交易</h2>
+      <h2>{{$t('transaction.tx_title')}}</h2>
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
-              <td>交易Hash</td>
-              <td>区块高度</td>
-              <td>交易时间</td>
-              <td>来自</td>
-              <td>发往</td>
-              <td>金额</td>
-              <td>数量</td>
+              <th>{{$t('transaction.tx_id')}}</th>
+              <th>{{$t('transaction.b_height')}}</th>
+              <th>{{$t('transaction.tx_time')}}</th>
+              <th>{{$t('transaction.from')}}</th>
+              <th>{{$t('transaction.to')}}</th>
+              <th>{{$t('transaction.amount')}}</th>
+              <th>{{$t('transaction.fee')}}</th>
             </tr>
           </thead>
           <tbody>

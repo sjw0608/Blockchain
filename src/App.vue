@@ -10,11 +10,27 @@
 <script>
 import VHeader from './components/Header/header'
 import VFooter from './components/Footer/footer'
+import { mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
     VHeader,
     VFooter
+  },
+  computed: {
+    ...mapGetters({
+      keywords: 'keywords'
+    })
+  },
+  watch: {
+    keywords() {
+      this.keywordsChanged()
+    }
+  },
+  methods: {
+    keywordsChanged() {
+      this.$router.push(`/block/${this.keywords}`)
+    }
   }
 }
 </script>

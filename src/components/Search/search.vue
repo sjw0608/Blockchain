@@ -31,7 +31,7 @@
           <p class="index-bar-description">{{$t('search.reversible')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">3s</p>
+          <p class="index-bar-num">3</p>
           <p class="index-bar-description">{{$t('search.time')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
@@ -53,15 +53,32 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       search: ''
     }
   },
+  computed: {
+    ...mapGetters({
+      keywords: 'keywords'
+    })
+  },
+  watch: {
+    keywords() {
+      if (this.keywords != this.search) {
+        this.search = this.keywords
+      }
+    }
+  },
   methods: {
+    ...mapActions({
+      setKeywords: 'setKeywords'
+    }),
     eventChanged() {
       this.search = this.search.replace(/(^\s*)|(\s*$)/g, '')
+      this.setKeywords({ keywords: this.search })
     }
   }
 }
