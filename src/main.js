@@ -4,11 +4,13 @@ import '@/assets/lib/global'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueResource from 'vue-resource'
 import locales from '@/locales'
 import store from './store/store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 
+Vue.use(VueResource)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

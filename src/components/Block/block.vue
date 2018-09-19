@@ -36,6 +36,9 @@
 
 <script>
 export default {
+  props: {
+    getBlocks: Array
+  },
   data() {
     return {
       transactions: 20

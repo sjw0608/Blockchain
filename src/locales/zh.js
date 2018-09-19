@@ -44,6 +44,12 @@ const locale = {
     balance: '余额',
     try_currency: '试用币',
     account_id: '账号ID'
+  },
+  common: {
+    secs: '秒前',
+    min: '分钟前',
+    month: '月前',
+    year: '年前'
   }
 }
 

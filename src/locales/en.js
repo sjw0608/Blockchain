@@ -32,7 +32,7 @@ const locale = {
   },
   block: {
     b_title: 'Block',
-    tx_num: 'Transaction number',
+    tx_num: 'Transactions',
     b_account: 'Account',
     time: 'Time',
     block_id: 'Block ID',
@@ -44,6 +44,12 @@ const locale = {
     balance: 'Balance',
     try_currency: 'Try out Currency',
     account_id: 'Account ID'
+  },
+  common: {
+    secs: 'secs ago',
+    min: 'min ago',
+    month: 'month ago',
+    year: 'year ago'
   }
 }
 
