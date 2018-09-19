@@ -41,6 +41,9 @@
 
 <script>
 export default {
+  props: {
+    txMessages: Array
+  },
   data() {
     return {
       transactions: 20

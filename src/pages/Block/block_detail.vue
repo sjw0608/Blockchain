@@ -73,50 +73,23 @@
     </div>
     <div class="container block_tx">
       <h2>{{$t('transaction.tx_title')}}</h2>
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>{{$t('transaction.tx_id')}}</th>
-              <th>{{$t('transaction.b_height')}}</th>
-              <th>{{$t('transaction.tx_time')}}</th>
-              <th>{{$t('transaction.from')}}</th>
-              <th>{{$t('transaction.to')}}</th>
-              <th>{{$t('transaction.amount')}}</th>
-              <th>{{$t('transaction.fee')}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <router-link :to="{name:'TransactionDetail',params:{tx_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8</router-link>
-              </td>
-              <td>15641616</td>
-              <td>
-                1秒前
-              </td>
-              <td>
-                <router-link :to="{}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
-              </td>
-              <td>
-                <router-link :to="{}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
-              </td>
-              <td>
-                1.0000
-              </td>
-              <td>
-                0.0001
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <v-block :blockMessages='blockMessages'></v-block>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import VBlock from '@/components/Block/block'
+export default {
+  components: {
+    VBlock
+  },
+  data() {
+    return {
+      blockMessages: []
+    }
+  }
+}
 </script>
 
 <style scoped>
