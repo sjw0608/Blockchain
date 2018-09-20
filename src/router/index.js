@@ -6,6 +6,7 @@ import Block from '@/pages/Block/block'
 import BlockDetail from '@/pages/Block/block_detail'
 import TransactionDetail from '@/pages/Transactions/transaction_detail'
 import Account from '@/pages/account/account'
+import NoPage from '@/pages/404'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +23,7 @@ export default new Router({
     },
     {
       path: '/block/:blockHeight',
-      name: 'BloBlockDetailck',
+      name: 'BlockDetail',
       component: BlockDetail
     },
     {
@@ -39,6 +40,15 @@ export default new Router({
       path: '/account/:a_id',
       name: 'Account',
       component: Account
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: NoPage
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ]
 })

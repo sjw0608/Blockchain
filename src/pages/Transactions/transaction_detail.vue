@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-9 col-xs-12">
           <p>
-            <router-link :to="{name:'BloBlockDetailck',params:{blockHeight:'977694'}}">9515614</router-link>
+            <router-link :to="{name:'BlockDetail',params:{blockHeight:'977694'}}">9515614</router-link>
           </p>
         </div>
       </div>

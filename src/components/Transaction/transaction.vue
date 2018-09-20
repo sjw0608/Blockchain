@@ -20,7 +20,7 @@
                 <router-link :to="{name:'TransactionDetail',params:{tx_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8</router-link>
               </th>
               <th>
-                <router-link :to="{name:'BloBlockDetailck',params:{blockHeight:'977694'}}">977694</router-link>
+                <router-link :to="{name:'BlockDetail',params:{blockHeight:'977694'}}">977694</router-link>
               </th>
               <th>1秒前</th>
               <th>

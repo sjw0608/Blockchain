@@ -15,7 +15,7 @@
           <tbody>
             <tr v-for="i in transactions">
               <th>
-                <router-link :to="{name:'BloBlockDetailck',params:{blockHeight:'985415'}}">985415</router-link>
+                <router-link :to="{name:'BlockDetail',params:{blockHeight:'985415'}}">985415</router-link>
               </th>
               <th>1秒前</th>
               <th>
