@@ -11,7 +11,7 @@
               <th>{{$t('transaction.from')}}</th>
               <th>{{$t('transaction.to')}}</th>
               <th>{{$t('transaction.amount')}}</th>
-              <th>{{$t('transaction.fee')}}</th>
+              <!-- <th>{{$t('transaction.fee')}}</th> -->
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@
                 <router-link :to="{name:'Account',params:{a_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
               </th>
               <th>1.000</th>
-              <th>0.0001</th>
+              <!-- <th>0.0001</th> -->
             </tr>
           </tbody>
         </table>

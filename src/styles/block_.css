@@ -4,3 +4,69 @@ a {
 a:hover {
   color: #5293ff;
 }
+
+.tx_message .row p,
+.account_message .row p,
+.block_message .row p {
+  word-break: break-all;
+}
+.tx_message,
+.block_message,
+.account_message {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 15px #ccc;
+}
+.tx_message,
+.block_message,
+.account_message {
+  margin-top: -60px;
+  margin-bottom: 30px;
+}
+.tx_message .row,
+.block_message .row {
+  height: 30px;
+  line-height: 30px;
+}
+
+.tx_detial_title,
+.account_title,
+.block_detial_title {
+  background-color: #4090f7;
+  min-height: 240px;
+  text-align: center;
+  color: #fff;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+.block_detial_title > h2,
+.tx_detial_title > h2,
+.account_title > h2 {
+  font-size: 44px;
+  font-weight: 700;
+}
+.block_tx > h2,
+.account_message > h2,
+.block_message > h2,
+.tx_message > h2 {
+  border-bottom: 1px solid #ccc;
+  font-size: 28px;
+  padding-bottom: 10px;
+}
+.account_message .table tr {
+  height: 45px;
+  line-height: 45px;
+}
+.account_message .row {
+  height: 30px;
+  line-height: 30px;
+}
+
+@media (max-width: 750px) {
+  .block_pandect,
+  .tx_message,
+  .block_message,
+  .account_message {
+    border-radius: 0 !important;
+  }
+}

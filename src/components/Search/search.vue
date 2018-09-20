@@ -108,11 +108,17 @@ export default {
 .block_pandect .index-bar-num {
   padding-top: 10px;
   font-size: 24px;
-  margin: 0 0 15px;
+  margin: 0px;
   color: #000;
 }
 .block_pandect .index-bar-description {
   font-size: 16px;
   color: #666;
+}
+.block_pandect .row {
+  padding: 10px 0;
+}
+.text-center {
+  color: #fff;
 }
 </style>

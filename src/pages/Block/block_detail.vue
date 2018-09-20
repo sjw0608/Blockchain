@@ -2,7 +2,7 @@
   <div>
     <div class="block_detial_title">
       <h2>{{$t('block.b_title')}}</h2>
-      <h3>994160</h3>
+      <!-- <h3>994160</h3> -->
     </div>
     <div class="container block_message">
       <h2>{{$t('transaction.message')}}</h2>
@@ -27,7 +27,9 @@
           {{$t('block.last')}}
         </div>
         <div class="col-md-9 col-xs-12">
-          <p>d1c07ebfdf1a5a5f9ec5b96024b926429321eae4c25298423885d9ed83bfa7a2</p>
+          <p>
+            <router-link :to="{}">d1c07ebfdf1a5a5f9ec5b96024b926429321eae4c25298423885d9ed83bfa7a2</router-link>
+          </p>
         </div>
       </div>
       <div class="row">
@@ -51,7 +53,9 @@
           {{$t('block.b_account')}}
         </div>
         <div class="col-md-9 col-xs-12">
-          <p>xs13454asasdwq54564a64d6sa46ca</p>
+          <p>
+            <router-link :to="{name:'Account',params:{a_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
+          </p>
         </div>
       </div>
       <div class="row">
@@ -71,74 +75,28 @@
         </div>
       </div>
     </div>
-    <div class="container block_tx">
-      <h2>{{$t('transaction.tx_title')}}</h2>
-      <v-block :blockMessages='blockMessages'></v-block>
-    </div>
+    <tx-detail></tx-detail>
   </div>
 </template>
 
 <script>
-import VBlock from '@/components/Block/block'
+import TxDetail from '@/components/Transaction/tx_detail'
 export default {
   components: {
-    VBlock
+    TxDetail
   },
   data() {
-    return {
-      blockMessages: []
-    }
+    return {}
   }
 }
 </script>
 
 <style scoped>
-.block_detial_title {
-  background-color: #4090f7;
-  height: 240px;
-  text-align: center;
-  color: #fff;
-  padding-top: 50px;
-  box-sizing: border-box;
-}
-.block_detial_title > h2 {
-  font-size: 44px;
-  font-weight: 700;
-}
-.block_message,
-.block_tx {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 15px #ccc;
-}
-.block_message {
-  margin-top: -60px;
-  margin-bottom: 30px;
-}
-
-.block_message > h2,
-.block_tx > h2 {
-  border-bottom: 1px solid #ccc;
-  font-size: 28px;
-  padding-bottom: 10px;
-}
 .block_message .table tr {
   height: 45px;
   line-height: 45px;
 }
-.block_message .row {
-  height: 30px;
-  line-height: 30px;
-}
-.block_message .row p,
-.block_tx .table td > a {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.block_tx .table td > a {
-  display: block;
-  width: 132px;
+.tx_message {
+  margin-top: 0px !important;
 }
 </style>
