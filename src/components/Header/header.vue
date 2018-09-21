@@ -18,9 +18,6 @@
             <li>
               <router-link :to="{name:'Index'}" active-class="active" exact>{{$t('header.home')}}</router-link>
             </li>
-             <li>
-              <router-link :to="{name:'Block'}" active-class="active">{{$t('header.block')}}</router-link>
-            </li>
             <li>
               <router-link :to="{name:'Transactions'}" active-class="active">{{$t('header.transaction')}}</router-link>
             </li>

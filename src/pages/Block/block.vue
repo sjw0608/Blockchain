@@ -14,20 +14,13 @@ export default {
     }
   },
   mounted() {
-    this.getBlock()
+    this._getBlock()
   },
   methods: {
-    getBlock() {
-      this.$http
-        .get('http://yapi.demo.qunar.com/mock/19300/api/block', {
-          params: {
-            page: 1,
-            pageSize: 20
-          }
-        })
-        .then(res => {
-          console.log(res)
-        })
+    _getBlock() {
+      eos.getBlock('1').then(res => {
+        console.log(res)
+      })
     }
   }
 }

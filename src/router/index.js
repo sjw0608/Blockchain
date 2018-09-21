@@ -16,11 +16,11 @@ export default new Router({
       name: 'Index',
       component: Index
     },
-    {
-      path: '/block',
-      name: 'Block',
-      component: Block
-    },
+    // {
+    //   path: '/block',
+    //   name: 'Block',
+    //   component: Block
+    // },
     {
       path: '/block/:blockHeight',
       name: 'BlockDetail',

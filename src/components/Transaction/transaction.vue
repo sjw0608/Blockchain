@@ -11,25 +11,24 @@
               <th>{{$t('transaction.from')}}</th>
               <th>{{$t('transaction.to')}}</th>
               <th>{{$t('transaction.amount')}}</th>
-              <!-- <th>{{$t('transaction.fee')}}</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr v-for="i in transactions">
+            <tr v-for="idx in txMessages">
               <th>
-                <router-link :to="{name:'TransactionDetail',params:{tx_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8</router-link>
+                <router-link :to="{name:'TransactionDetail',params:{tx_id:idx.action_trace.trx_id}}">{{idx.action_trace.trx_id}}</router-link>
               </th>
               <th>
-                <router-link :to="{name:'BlockDetail',params:{blockHeight:'977694'}}">977694</router-link>
+                <router-link :to="{name:'BlockDetail',params:{blockHeight:idx.block_num}}">{{idx.block_num}}</router-link>
               </th>
-              <th>1秒前</th>
+              <th>{{idx.block_time}}</th>
               <th>
-                <router-link :to="{name:'Account',params:{a_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
+                <router-link :to="{name:'Account',params:{a_id:idx.action_trace.act.data.from}}">{{idx.action_trace.act.data.from}}</router-link>
               </th>
               <th>
-                <router-link :to="{name:'Account',params:{a_id:'0x201ffac024332e95a1990fb5e8b04836c70f067be4780b5560f95f5e922160b8'}}">ux026b28a21318175c85d0c86c4fe8f6a18c8f99fb</router-link>
+                <router-link :to="{name:'Account',params:{a_id:idx.action_trace.act.data.to}}">{{idx.action_trace.act.data.to}}</router-link>
               </th>
-              <th>1.000</th>
+              <th>{{idx.action_trace.act.data.quantity}}</th>
               <!-- <th>0.0001</th> -->
             </tr>
           </tbody>
@@ -45,9 +44,7 @@ export default {
     txMessages: Array
   },
   data() {
-    return {
-      transactions: 20
-    }
+    return {}
   }
 }
 </script>

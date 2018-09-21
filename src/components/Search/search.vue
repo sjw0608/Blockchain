@@ -23,11 +23,11 @@
     <div class="container block_pandect">
       <div class="row">
         <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">15,823,860</p>
+          <p class="index-bar-num">{{blockInfo.head_block_num}}</p>
           <p class="index-bar-description">{{$t('search.height')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">15,823,534</p>
+          <p class="index-bar-num">{{blockInfo.last_irreversible_block_num}}</p>
           <p class="index-bar-description">{{$t('search.reversible')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
@@ -39,7 +39,7 @@
           <p class="index-bar-description">{{$t('search.node')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">978206</p>
+          <p class="index-bar-num">{{blockInfo.head_block_num}}</p>
           <p class="index-bar-description">{{$t('search.newBlock')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
@@ -55,6 +55,9 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  props: {
+    blockInfo: Object
+  },
   data() {
     return {
       search: ''

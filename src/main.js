@@ -9,8 +9,14 @@ import locales from '@/locales'
 import store from './store/store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
+import './utils/eosjs'
 
 Vue.use(VueResource)
+Vue.http.options.emulateJSON = true
+Vue.http.options.headers = {
+  'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+}
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
