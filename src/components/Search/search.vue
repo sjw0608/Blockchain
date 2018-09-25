@@ -34,9 +34,9 @@
           <p class="index-bar-num">3</p>
           <p class="index-bar-description">{{$t('search.time')}}</p>
         </div>
-         <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">1.25.254</p>
-          <p class="index-bar-description">{{$t('search.node')}}</p>
+        <div class="col-md-2 col-xs-6">
+          <p class="index-bar-num">{{blockInfo.head_block_producer}}</p>
+          <p class="index-bar-description">{{$t('search.account')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
           <p class="index-bar-num">{{blockInfo.head_block_num}}</p>

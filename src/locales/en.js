@@ -12,7 +12,8 @@ const locale = {
     height: 'Block Height',
     reversible: 'Irreversible Block',
     time: 'Block Interval(s)',
-    node: 'Node',
+    account: 'Node',
+    node: 'Producer Signature',
     newBlock: 'Head Block',
     transaction: 'Total Transactions'
   },

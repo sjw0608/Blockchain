@@ -26,12 +26,12 @@ export default {
   mounted() {
     this._getInfo()
     this._getActions()
-    // this._getActionsInfo = setInterval(() => {
-    //   this._getActions()
-    // }, 5000)
-    // this._getBlockInfo = setInterval(() => {
-    //   this._getInfo()
-    // }, 3000)
+    this._getActionsInfo = setInterval(() => {
+      this._getActions()
+    }, 1000)
+    this._getBlockInfo = setInterval(() => {
+      this._getInfo()
+    }, 3000)
   },
   destroyed() {
     clearInterval(this._getBlockInfo)
@@ -40,9 +40,11 @@ export default {
   methods: {
     _getInfo() {
       var _this = this
-      this.$http.post('http://192.168.1.67:8888/v1/chain/get_info').then(res => {
-        console.log(res.data)
-        _this.info = res.data
+      // this.$http.post('http://192.168.1.67:8888/v1/chain/get_info').then(res => {
+      //   _this.info = res.data
+      // })
+      eos.getInfo({}).then(res => {
+        _this.info = res
       })
     },
     _getActions() {
@@ -50,13 +52,13 @@ export default {
       eos.getActions({ account_name: 'eosio.token' }).then(res => {
         _this.actions = res.actions
       })
-      // this.$http
-      //   .post('http://192.168.1.67:8888/v1/history/get_actions', {
-      //     account_name: 'eosio.token'
-      //   })
-      //   .then(res => {
-      //     console.log(res)
-      //   })
+      //   this.$http
+      //     .post('http://192.168.1.67:8888/v1/history/get_actions', {
+      //       account_name: 'eosio.token'
+      //     })
+      //     .then(res => {
+      //       console.log(res)
+      //     })
     }
   }
 }
