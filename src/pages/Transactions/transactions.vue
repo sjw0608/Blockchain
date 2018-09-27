@@ -4,17 +4,34 @@
       <h2>{{$t('transaction.tx_title')}}</h2>
     </div>
     <div class="tx_">
-      <v-transaction></v-transaction>
+      <v-transaction :txMessages='actions'></v-transaction>
     </div>
   </div>
 </template>
 
 <script>
 import VTransaction from '@/components/Transaction/transaction'
+import { get_actions } from '@/services/services'
 export default {
   name: 'Transactions',
   components: {
     VTransaction
+  },
+  data() {
+    return {
+      actions: []
+    }
+  },
+  mounted() {
+    this._getActions()
+  },
+  methods: {
+    _getActions() {
+      var _this = this
+      get_actions({ account_name: 'eosio.token' }).then(res => {
+        _this.actions = res.data.actions
+      })
+    }
   }
 }
 </script>

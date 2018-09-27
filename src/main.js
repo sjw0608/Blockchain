@@ -9,13 +9,13 @@ import locales from '@/locales'
 import store from './store/store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
-import './utils/eosjs'
+// import './utils/eosjs'
 
-// Vue.use(VueResource)
-// Vue.http.options.emulateJSON = true
-// Vue.http.options.headers = {
-//   'Content-Type': 'application/x-www-form-urlencoded'
-// }
+Vue.use(VueResource)
+Vue.http.options.emulateJSON = true
+Vue.http.options.headers = {
+  'Content-Type': 'application/json'
+}
 
 Vue.config.productionTip = false
 

@@ -12,6 +12,7 @@
 <script>
 import VSearch from '@/components/Search/search'
 import VTransaction from '@/components/Transaction/transaction'
+import { get_info, get_actions } from '@/services/services'
 export default {
   components: {
     VSearch,
@@ -40,25 +41,22 @@ export default {
   methods: {
     _getInfo() {
       var _this = this
-      // this.$http.post('http://192.168.1.67:8888/v1/chain/get_info').then(res => {
-      //   _this.info = res.data
-      // })
-      eos.getInfo({}).then(res => {
-        _this.info = res
+      get_info().then(res => {
+        if (res.status == 200) {
+          _this.info = res.data
+        }
       })
     },
     _getActions() {
       var _this = this
-      eos.getActions({ account_name: 'eosio.token' }).then(res => {
-        _this.actions = res.actions
+      var data = {
+        account_name: 'eosio.token'
+      }
+      get_actions(data).then(res => {
+        if (res.status == 200) {
+          _this.actions = res.data.actions
+        }
       })
-      //   this.$http
-      //     .post('http://192.168.1.67:8888/v1/history/get_actions', {
-      //       account_name: 'eosio.token'
-      //     })
-      //     .then(res => {
-      //       console.log(res)
-      //     })
     }
   }
 }

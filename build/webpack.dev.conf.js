@@ -34,11 +34,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay ? { warnings: false, errors: true } : false,
     publicPath: config.dev.assetsPublicPath,
-    // proxy: config.dev.proxyTable,
-    proxy: {
-      '/v1': 'http://api.eosnewyork.io'
-      // '/v1': 'http://192.168.1.122:8888'
-    },
+    proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll

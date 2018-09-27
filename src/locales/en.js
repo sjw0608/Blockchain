@@ -12,8 +12,8 @@ const locale = {
     height: 'Block Height',
     reversible: 'Irreversible Block',
     time: 'Block Interval(s)',
-    account: 'Node',
-    node: 'Producer Signature',
+    account: 'Producer Signature',
+    node: 'Node',
     newBlock: 'Head Block',
     transaction: 'Total Transactions'
   },
@@ -44,13 +44,12 @@ const locale = {
     a_message: 'Account Information',
     balance: 'Balance',
     try_currency: 'Try out Currency',
-    account_id: 'Account ID'
+    account_id: 'Account Name',
+    created: 'Created Time'
   },
-  common: {
-    secs: 'secs ago',
-    min: 'min ago',
-    month: 'month ago',
-    year: 'year ago'
+  tip: {
+    tx_tip: 'No transaction information was found',
+    block_tip: 'No block information was found'
   }
 }
 

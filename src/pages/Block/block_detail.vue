@@ -1,84 +1,90 @@
 <template>
   <div>
-    <div class="block_detial_title">
-      <h2>{{$t('block.b_title')}}</h2>
-      <!-- <h3>994160</h3> -->
-    </div>
-    <div class="container block_message">
-      <h2>{{$t('transaction.message')}}</h2>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('transaction.b_height')}}
+    <div>
+      <div class="block_detial_title">
+        <h2>{{$t('block.b_title')}}</h2>
+        <!-- <h3>994160</h3> -->
+      </div>
+      <div class="container block_message">
+        <h2>{{$t('transaction.message')}}</h2>
+        <div v-if="block_message">
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('transaction.b_height')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>{{blockDetail.block_num}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('block.block_id')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>{{blockDetail.id}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('block.last')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>
+                {{blockDetail.previous}}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('block.time')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>{{new Date(blockDetail.timestamp+'z').format('yyyy-MM-dd hh:mm:ss')}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('search.reversible')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>false</p>
+            </div>
+          </div>
+          <div class="row" v-if=" blockDetail.new_producers ||  blockDetail.producer">
+            <div class="col-md-3 col-xs-12">
+              {{$t('block.b_account')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>
+                <router-link :to="{name:'Account',params:{a_id:(blockDetail.new_producers ? blockDetail.new_producers : blockDetail.producer)}}">{{blockDetail.new_producers ? blockDetail.new_producers : blockDetail.producer}}</router-link>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('search.node')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>{{blockDetail.producer_signature}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              {{$t('block.tx_num')}}
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <p>{{Block_tx_num}}</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-9 col-xs-12">
-          <p>{{blockDetail.block_num}}</p>
+        <div v-else>
+          <p>{{$t('tip.block_tip')}}</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('block.block_id')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>{{blockDetail.id}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('block.last')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>
-            <router-link :to="{name:'BlockDetail',params:{blockHeight:blockDetail.previous}}">{{blockDetail.previous}}</router-link>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('block.time')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>{{blockDetail.timestamp}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('search.reversible')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>false</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('block.b_account')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>
-            <router-link :to="{name:'Account',params:{a_id:(blockDetail.new_producers ? blockDetail.new_producers : blockDetail.producer)}}">{{blockDetail.new_producers ? blockDetail.new_producers : blockDetail.producer}}</router-link>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('search.node')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>{{blockDetail.producer_signature}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-xs-12">
-          {{$t('block.tx_num')}}
-        </div>
-        <div class="col-md-9 col-xs-12">
-          <p>{{Block_tx_num}}</p>
-        </div>
-      </div>
-    </div>
-    <!-- <tx-detail :Block_tx = 'Block_tx'></tx-detail> -->
-    <div class="container tx_message">
-      <h2>交易</h2>
-      <div class="table-responsive">
+      <!-- <tx-detail :Block_tx = 'Block_tx'></tx-detail> -->
+      <div class="container tx_message">
+        <h2>{{$t('transaction.tx_title')}}</h2>
+        <div class="table-responsive" v-if="Block_tx.length">
         <table class="table">
           <thead>
             <tr class="title">
@@ -107,6 +113,10 @@
             </tr>
           </tbody>
         </table>
+        </div>
+        <div v-else>
+          {{$t('tip.tx_tip')}}
+        </div>
       </div>
     </div>
   </div>
@@ -114,6 +124,7 @@
 
 <script>
 import TxDetail from '@/components/Transaction/tx_detail'
+import { get_block } from '@/services/services'
 export default {
   components: {
     TxDetail
@@ -122,7 +133,8 @@ export default {
     return {
       blockDetail: {},
       Block_tx: [],
-      Block_tx_num: 0
+      Block_tx_num: 0,
+      block_message: true
     }
   },
   mounted() {
@@ -132,16 +144,22 @@ export default {
   watch: {
     $route(route) {
       this.blockHeight = this.$route.params.blockHeight
+      this._getBlockDetail(this.blockHeight)
     }
   },
   methods: {
-    _getBlockDetail(blockHeight) {
+    _getBlockDetail(block_id) {
       var _this = this
-      eos.getBlock({ block_num_or_id: blockHeight }).then(res => {
-        _this.blockDetail = res
-        _this.Block_tx = res.transactions
-        _this.Block_tx_num = res.transactions.length
-      })
+      get_block({ block_num_or_id: block_id }).then(
+        res => {
+          _this.blockDetail = res.data
+          _this.Block_tx = res.data.transactions
+          _this.Block_tx_num = res.data.transactions.length
+        },
+        err => {
+          _this.block_message = false
+        }
+      )
     }
   }
 }

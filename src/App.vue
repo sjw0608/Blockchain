@@ -3,19 +3,16 @@
     <v-header></v-header>
     <router-view/>
     <div style="height:20px"></div>
-    <!-- <v-footer></v-footer> -->
   </div>
 </template>
 
 <script>
 import VHeader from './components/Header/header'
-import VFooter from './components/Footer/footer'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'App',
   components: {
-    VHeader,
-    VFooter
+    VHeader
   },
   computed: {
     ...mapGetters({
@@ -28,8 +25,22 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      setKeywords: 'setKeywords'
+    }),
     keywordsChanged() {
-      this.$router.push(`/block/${this.keywords}`)
+      if (!this.keywords) {
+        return
+      } else if (/^\d+$/.test(this.keywords)) {
+        this.$router.push(`/block/${this.keywords}`)
+        this.setKeywords({ keywords: '' })
+      } else if (this.keywords.length >= 40) {
+        this.$router.push(`/transactions/${this.keywords}`)
+        this.setKeywords({ keywords: '' })
+      } else {
+        this.$router.push(`/account/${this.keywords}`)
+        this.setKeywords({ keywords: '' })
+      }
     }
   }
 }

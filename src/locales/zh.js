@@ -44,13 +44,12 @@ const locale = {
     a_message: '账号信息',
     balance: '余额',
     try_currency: '试用币',
-    account_id: '账号ID'
+    account_id: '账号名',
+    created: '创建时间'
   },
-  common: {
-    secs: '秒前',
-    min: '分钟前',
-    month: '月前',
-    year: '年前'
+  tip: {
+    tx_tip: '未查到交易信息',
+    block_tip: '未查到区块信息'
   }
 }
 
