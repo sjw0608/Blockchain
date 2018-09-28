@@ -37,7 +37,10 @@ const locale = {
     b_account: '持有者',
     time: '生成时间',
     block_id: '区块ID',
-    last: '上个区块'
+    last: '上个区块',
+    b_time: '时间',
+    b_status: '状态',
+    actions: '操作'
   },
   account: {
     account: '账号',

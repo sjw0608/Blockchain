@@ -37,7 +37,10 @@ const locale = {
     b_account: 'Account',
     time: 'Time',
     block_id: 'Block ID',
-    last: 'Last Block'
+    last: 'Last Block',
+    b_time: 'Time',
+    b_status: 'Status',
+    actions: 'Actions'
   },
   account: {
     account: 'Account',

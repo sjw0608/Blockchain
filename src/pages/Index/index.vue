@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-search :blockInfo='info'></v-search>
+    <v-search :blockInfo='info' :transactions='transactions'></v-search>
     <div class="container record">
       <span>{{$t('transaction.tx_history')}}</span>
       <router-link :to="{name:'Transactions'}" class="more_view">{{$t('transaction.view_more')}} >></router-link>
@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       actions: [],
-      info: {}
+      info: {},
+      transactions: 0
     }
   },
   mounted() {
@@ -42,9 +43,7 @@ export default {
     _getInfo() {
       var _this = this
       get_info().then(res => {
-        if (res.status == 200) {
-          _this.info = res.data
-        }
+        _this.info = res.data
       })
     },
     _getActions() {
@@ -53,8 +52,9 @@ export default {
         account_name: 'eosio.token'
       }
       get_actions(data).then(res => {
-        if (res.status == 200) {
-          _this.actions = res.data.actions
+        _this.actions = res.data.actions
+        for (var idx = 0; idx < res.data.actions.length; idx++) {
+          _this.transactions = res.data.actions[idx].account_action_seq + 1
         }
       })
     }

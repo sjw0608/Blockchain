@@ -43,7 +43,7 @@
           <p class="index-bar-description">{{$t('search.newBlock')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">310,632</p>
+          <p class="index-bar-num">{{transactions}}</p>
           <p class="index-bar-description">{{$t('search.transaction')}}</p>
         </div>
       </div>
@@ -56,7 +56,8 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
   props: {
-    blockInfo: Object
+    blockInfo: Object,
+    transactions: Number
   },
   data() {
     return {

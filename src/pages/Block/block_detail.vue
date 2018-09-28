@@ -89,10 +89,10 @@
           <thead>
             <tr class="title">
               <th>TxHash</th>
-              <th>区块</th>
-              <th>时间</th>
-              <th>状态</th>
-              <th>操作</th>
+              <th>{{$t('block.b_title')}}</th>
+              <th>{{$t('block.b_time')}}</th>
+              <th>{{$t('block.b_status')}}</th>
+              <th>{{$t('block.actions')}}</th>
             </tr>
           </thead>
           <tbody>

@@ -24,6 +24,12 @@ export default {
   },
   mounted() {
     this._getActions()
+    this._getActionsInfo = setInterval(() => {
+      this._getActions()
+    }, 1000)
+  },
+  destroyed() {
+    clearInterval(this._getActionsInfo)
   },
   methods: {
     _getActions() {
