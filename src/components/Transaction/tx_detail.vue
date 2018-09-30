@@ -1,5 +1,6 @@
 <template>
   <div>
+    <template v-if="Block_tx.length">
     <div v-for="tx in Block_tx">
       <div  class="container tx_message">
         <h2>{{$t('transaction.tx_title')}}</h2>
@@ -77,6 +78,17 @@
         </div>
       </div>
     </div>
+    </template>
+    <template v-else>
+      <div  class="container tx_message">
+        <h2>{{$t('transaction.tx_title')}}</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <p>暂无交易记录</p>
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 

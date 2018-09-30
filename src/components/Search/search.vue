@@ -31,7 +31,7 @@
           <p class="index-bar-description">{{$t('search.reversible')}}</p>
         </div>
          <div class="col-md-2 col-xs-6">
-          <p class="index-bar-num">3</p>
+          <p class="index-bar-num">0.5</p>
           <p class="index-bar-description">{{$t('search.time')}}</p>
         </div>
         <div class="col-md-2 col-xs-6">

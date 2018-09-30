@@ -12,7 +12,7 @@ const locale = {
     height: '区块高度',
     reversible: '不可逆区块',
     time: '出块时间(秒)',
-    account: '持有者',
+    account: '生产者',
     node: '节点签名',
     newBlock: '最新区块',
     transaction: '交易总量'

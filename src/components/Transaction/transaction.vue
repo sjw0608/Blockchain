@@ -14,6 +14,7 @@
             </tr>
           </thead>
           <tbody>
+            <template v-if="txMessages.length">
             <tr v-for="idx in txMessages">
               <th>
                 <router-link :to="{name:'TransactionDetail',params:{tx_id:idx.action_trace.trx_id}}">{{idx.action_trace.trx_id}}</router-link>
@@ -31,8 +32,12 @@
               <th>{{idx.action_trace.act.data.quantity}}</th>
               <!-- <th>0.0001</th> -->
             </tr>
+            </template>
           </tbody>
         </table>
+      </div>
+      <div v-if="!txMessages.length">
+        <p class="no_history">暂无更多记录</p>
       </div>
     </div>
   </div>
@@ -76,5 +81,10 @@ export default {
 }
 .transaction .table {
   background-color: #fff;
+}
+.no_history {
+  background-color: #f9f9f9;
+  text-align: center;
+  line-height: 45px;
 }
 </style>

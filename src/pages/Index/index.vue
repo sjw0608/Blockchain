@@ -33,7 +33,7 @@ export default {
     }, 1000)
     this._getBlockInfo = setInterval(() => {
       this._getInfo()
-    }, 3000)
+    }, 1000)
   },
   destroyed() {
     clearInterval(this._getBlockInfo)
@@ -49,13 +49,13 @@ export default {
     _getActions() {
       var _this = this
       var data = {
-        account_name: 'eosio.token'
+        account_name: 'eosio.token',
+        pos: 0,
+        offset: 20
       }
       get_actions(data).then(res => {
-        _this.actions = res.data.actions
-        for (var idx = 0; idx < res.data.actions.length; idx++) {
-          _this.transactions = res.data.actions[idx].account_action_seq + 1
-        }
+        _this.actions = Array.reverse(res.data.actions)
+        _this.transactions = res.data.actions[0].account_action_seq + 1
       })
     }
   }

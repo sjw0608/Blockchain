@@ -5,6 +5,10 @@
     </div>
     <div class="tx_">
       <v-transaction :txMessages='actions'></v-transaction>
+      <div class="page container">
+        <div class="last" @click='getMoreLast()'>last</div>
+        <div class="next" @click='getMoreNext()'>next</div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,24 +23,40 @@ export default {
   },
   data() {
     return {
-      actions: []
+      actions: [],
+      pops: 1,
+      offset: 20
     }
   },
   mounted() {
-    this._getActions()
-    this._getActionsInfo = setInterval(() => {
-      this._getActions()
-    }, 1000)
+    this._getActions(this.pops, this.offset)
+    // this._getActionsInfo = setInterval(() => {
+    //   this._getActions(this.pops, this.offset)
+    // }, 1000)
   },
   destroyed() {
     clearInterval(this._getActionsInfo)
   },
   methods: {
-    _getActions() {
+    _getActions(pops, offset) {
       var _this = this
-      get_actions({ account_name: 'eosio.token' }).then(res => {
-        _this.actions = res.data.actions
+      var data = {
+        account_name: 'eosio.token',
+        pos: offset * (pops - 1),
+        offset: offset
+      }
+      get_actions(data).then(res => {
+        _this.actions = Array.reverse(res.data.actions)
       })
+    },
+    getMoreLast() {
+      if (this.pops == 1) return
+      this.pops -= 1
+      this._getActions(this.pops, this.offset)
+    },
+    getMoreNext() {
+      this.pops += 1
+      this._getActions(this.pops, this.offset)
     }
   }
 }

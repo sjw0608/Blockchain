@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-let baseUrl = 'http://192.168.1.67:8888'
+let baseUrl = 'http://122.112.235.223:8888'
 
 /**
  * New Block
