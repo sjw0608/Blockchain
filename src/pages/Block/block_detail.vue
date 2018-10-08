@@ -39,7 +39,7 @@
               {{$t('block.time')}}
             </div>
             <div class="col-md-9 col-xs-12">
-              <p>{{new Date(blockDetail.timestamp+'z').format('yyyy-MM-dd hh:mm:ss')}}</p>
+              <p>{{new Date(blockDetail.timestamp+'Z').format('yyyy-MM-dd hh:mm:ss')}}</p>
             </div>
           </div>
           <div class="row">
@@ -103,7 +103,7 @@
               <th>
                 {{blockDetail.block_num}}
               </th>
-              <th>{{idx.trx.transaction?new Date(idx.trx.transaction.expiration+'z').format('yyyy-MM-dd hh:mm:ss'):new Date(blockDetail.timestamp+'z').format('yyyy-MM-dd hh:mm:ss') }}</th>
+              <th>{{idx.trx.transaction?new Date(idx.trx.transaction.expiration+'Z').format('yyyy-MM-dd hh:mm:ss'):new Date(blockDetail.timestamp+'Z').format('yyyy-MM-dd hh:mm:ss') }}</th>
               <th>
                 {{idx.status}}
               </th>
@@ -150,16 +150,12 @@ export default {
   methods: {
     _getBlockDetail(block_id) {
       var _this = this
-      get_block({ block_num_or_id: block_id }).then(
-        res => {
-          _this.blockDetail = res.data
-          _this.Block_tx = res.data.transactions
-          _this.Block_tx_num = res.data.transactions.length
-        },
-        err => {
-          _this.block_message = false
-        }
-      )
+      get_block({ block_num_or_id: block_id }, function(res) {
+        console.log(new Date(res.timestamp + 'Z').format('yyyy-MM-dd hh:mm:ss'))
+        _this.blockDetail = res
+        _this.Block_tx = res.transactions
+        _this.Block_tx_num = res.transactions.length
+      })
     }
   }
 }

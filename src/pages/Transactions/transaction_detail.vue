@@ -29,7 +29,7 @@
             {{$t('transaction.tx_time')}}
           </div>
           <div class="col-md-9 col-xs-12">
-            <p>{{new Date(tx_detail.block_time+'z').format('yyyy-MM-dd hh:mm:ss')}}</p>
+            <p>{{new Date(tx_detail.block_time+'Z').format('yyyy-MM-dd hh:mm:ss')}}</p>
           </div>
         </div>
         <div class="row">
@@ -106,14 +106,9 @@ export default {
   methods: {
     _getTxDetail(tx_id) {
       var _this = this
-      get_transaction({ id: tx_id }).then(
-        res => {
-          _this.tx_detail = res.data
-        },
-        err => {
-          _this.tx_detail_status = false
-        }
-      )
+      get_transaction({ id: tx_id }, res => {
+        _this.tx_detail = res
+      })
     }
   }
 }

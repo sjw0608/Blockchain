@@ -22,7 +22,7 @@
               <th>
                 <router-link :to="{name:'BlockDetail',params:{blockHeight:idx.block_num}}">{{idx.block_num}}</router-link>
               </th>
-              <th>{{new Date(idx.block_time+'z').format('yyyy-MM-dd hh:mm:ss')}}</th>
+              <th>{{new Date(idx.block_time+'Z').format('yyyy-MM-dd hh:mm:ss')}}</th>
               <th>
                 <router-link :to="{name:'Account',params:{a_id:idx.action_trace.act.data.from}}">{{idx.action_trace.act.data.from}}</router-link>
               </th>

@@ -29,7 +29,7 @@ const locale = {
     to: 'To',
     amount: 'Amount',
     fee: 'Fee',
-    note: 'Note'
+    note: 'Memo'
   },
   block: {
     b_title: 'Block',

@@ -11,11 +11,13 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 // import './utils/eosjs'
 
-Vue.use(VueResource)
-Vue.http.options.emulateJSON = true
-Vue.http.options.headers = {
-  'Content-Type': 'application/json'
-}
+// Vue.use(VueResource)
+// // Vue.http.options.emulateJSON = true
+// Vue.http.options.headers = {
+//   // 'Content-Type': 'application/json'
+//   'Access-Control-Allow-Origin': '*',
+//   'Access-Control-Allow-Methods': 'POST'
+// }
 
 Vue.config.productionTip = false
 

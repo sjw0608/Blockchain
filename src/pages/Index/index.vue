@@ -42,8 +42,8 @@ export default {
   methods: {
     _getInfo() {
       var _this = this
-      get_info().then(res => {
-        _this.info = res.data
+      get_info(res => {
+        _this.info = res
       })
     },
     _getActions() {
@@ -53,9 +53,9 @@ export default {
         pos: 0,
         offset: 20
       }
-      get_actions(data).then(res => {
-        _this.actions = Array.reverse(res.data.actions)
-        _this.transactions = res.data.actions[0].account_action_seq + 1
+      get_actions(data, res => {
+        _this.actions = Array.reverse(res.actions)
+        _this.transactions = res.actions[0].account_action_seq + 1
       })
     }
   }

@@ -30,9 +30,9 @@ export default {
   },
   mounted() {
     this._getActions(this.pops, this.offset)
-    // this._getActionsInfo = setInterval(() => {
-    //   this._getActions(this.pops, this.offset)
-    // }, 1000)
+    this._getActionsInfo = setInterval(() => {
+      this._getActions(this.pops, this.offset)
+    }, 1000)
   },
   destroyed() {
     clearInterval(this._getActionsInfo)
@@ -45,8 +45,8 @@ export default {
         pos: offset * (pops - 1),
         offset: offset
       }
-      get_actions(data).then(res => {
-        _this.actions = Array.reverse(res.data.actions)
+      get_actions(data, res => {
+        _this.actions = Array.reverse(res.actions)
       })
     },
     getMoreLast() {

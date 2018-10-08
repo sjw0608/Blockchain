@@ -29,7 +29,7 @@
             {{$t('transaction.tx_time')}}
           </div>
           <div class="col-md-9 col-xs-12">
-            <p>{{new Date(tx.block_time+'z').format('yyyy-MM-dd hh:mm:ss')}}</p>
+            <p>{{new Date(tx.block_time+'Z').format('yyyy-MM-dd hh:mm:ss')}}</p>
           </div>
         </div>
         <div class="row">

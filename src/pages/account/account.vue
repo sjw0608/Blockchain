@@ -18,7 +18,7 @@
           {{$t('account.created')}}
         </div>
         <div class="col-md-9 col-xs-12">
-          <p>{{new Date(account.created+'z').format('yyyy-MM-dd hh:mm:ss')}}</p>
+          <p>{{new Date(account.created+'Z').format('yyyy-MM-dd hh:mm:ss')}}</p>
         </div>
       </div>
       <div class="row">
@@ -77,8 +77,8 @@ export default {
   methods: {
     _getAccount(account_name) {
       var _this = this
-      get_account({ account_name: account_name }).then(res => {
-        _this.account = res.data
+      get_account({ account_name: account_name }, res => {
+        _this.account = res
       })
     },
     _getActions(account_name, pops, offset) {
@@ -88,8 +88,8 @@ export default {
         pos: offset * (pops - 1),
         offset: offset
       }
-      get_actions(data).then(res => {
-        _this.block_tx = Array.reverse(res.data.actions)
+      get_actions(data, res => {
+        _this.block_tx = Array.reverse(res.actions)
       })
     },
     getMoreLast() {
@@ -98,6 +98,7 @@ export default {
       this._getActions(this.pops, this.offset)
     },
     getMoreNext() {
+      if (this.block_tx.length < 20) return
       this.pops += 1
       this._getActions(this.pops, this.offset)
     }
